@@ -12,6 +12,10 @@ export class BookingService {
   constructor(private _http: HttpClient) { }
 
   updateAvailableTimes(input : AvailableTimesDto) : Observable<AvailableTimesDto> {
-    return this._http.put<AvailableTimesDto>(environment.getApiAddress() + 'available-times', input);
+    return this._http.put<AvailableTimesDto>(environment.getApiAddress() + 'booking', input);
+  }
+
+  getAvailableTimes(coachId : number) : Observable<AvailableTimesDto> {
+    return this._http.get<AvailableTimesDto>(environment.getApiAddress() + 'booking/' + coachId);
   }
 }

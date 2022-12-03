@@ -9,6 +9,7 @@ import { UserProfileViewComponent } from './components/user-profile-view/user-pr
 import { UserProfileEditComponent } from './components/user-profile-edit/user-profile-edit.component';
 import { CoachViewComponent } from './coach/components/coach-view/coach-view.component';
 import { CoachesViewComponent } from './coach/components/coaches-view/coaches-view.component';
+import { CoachManageTimeslotComponent } from './coach/components/coach-manage-timeslot/coach-manage-timeslot.component';
 
 
 
@@ -19,7 +20,8 @@ import { CoachesViewComponent } from './coach/components/coaches-view/coaches-vi
     UserProfileViewComponent,
     UserProfileEditComponent,
     CoachViewComponent,
-    CoachesViewComponent
+    CoachesViewComponent,
+    CoachManageTimeslotComponent
   ],
   imports: [
     CommonModule,

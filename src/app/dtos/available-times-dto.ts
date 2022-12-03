@@ -1,5 +1,5 @@
 export interface AvailableTimesDto {
-  id : number,
-  startTime : string,
-  endTime : string,
+  coachId : number;
+  startTime : string;
+  endTime : string;
 }

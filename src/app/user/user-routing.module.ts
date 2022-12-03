@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardGuard } from '../guards/auth-guard.guard';
+import { CoachManageTimeslotComponent } from './coach/components/coach-manage-timeslot/coach-manage-timeslot.component';
 import { CoachViewComponent } from './coach/components/coach-view/coach-view.component';
 import { CoachesViewComponent } from './coach/components/coaches-view/coaches-view.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: "profile/edit", component: UserProfileEditComponent, canActivate: [AuthGuardGuard]},
   { path: "coaches", component: CoachesViewComponent },
   { path: "coach/view/:id", component: CoachViewComponent },
+  { path: "coach/manage-workhours", component: CoachManageTimeslotComponent },
   { path: "register", component: UserRegisterComponent},
 ];
 

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { CoachDto } from '../dtos/coach-dto';
 import { RegisterUserDto } from '../dtos/register-user-dto';
 import { UpdateUserDto } from '../dtos/update-user-dto';
 import { UserDto } from '../dtos/user-dto';
@@ -24,5 +25,13 @@ export class UserService {
 
   getAllUsers() : Observable<UserDto[]> {
     return this._http.get<UserDto[]>(environment.getApiAddress() + 'user');
+  }
+
+  getUser(id : number) : Observable<UserDto> {
+    return this._http.get<UserDto>(environment.getApiAddress() + 'user/' + id);
+  }
+
+  getCoach(id : number) : Observable<CoachDto> {
+    return this._http.get<CoachDto>(environment.getApiAddress() + 'user/coach/' + id);
   }
 }
