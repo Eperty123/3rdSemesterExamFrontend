@@ -1,7 +1,11 @@
 export const UserHelper = {
 
     getUserId() {
-        return Number.parseInt(localStorage.getItem("user") as string);
+        return Number.parseInt(localStorage.getItem("userId") as string);
+    },
+
+    getUserType() {
+        return localStorage.getItem("userType");
     },
 
     getUserToken() {
@@ -9,8 +13,13 @@ export const UserHelper = {
     },
 
     setUserId(id : any | null) {
-        if(id == null) localStorage.removeItem("user");
-        else localStorage.setItem("user", id.toString());
+        if(id == null) localStorage.removeItem("userId");
+        else localStorage.setItem("userId", id.toString());
+    },
+
+    setUserType(type : string | null) {
+        if(type == null) localStorage.removeItem("userType");
+        else localStorage.setItem("userType", type);
     },
 
     setUserToken(token : string | null) {

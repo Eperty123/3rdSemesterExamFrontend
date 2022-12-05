@@ -3,6 +3,7 @@ export const environment = {
   useHttps: true,
   domain: "localhost",
   port: 5000,
+  timeZone: 1,
 
   getApiAddress() {
     let useHttps = environment.useHttps;
