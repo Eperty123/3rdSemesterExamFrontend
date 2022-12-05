@@ -1,1 +1,48 @@
-<p>coach-view works!</p>
+<div class="row">
+    <div class="col-8 offset-2" *ngIf="user == null; else userValid">
+        <h1 class="text-center" [innerText]="errorMessage">Loading...</h1>
+    </div>
+
+    <ng-template #userValid>
+            <div class="col-4 offset-4" *ngIf="user != null">
+                <h1>Book Coaching</h1>
+                
+                <!-- Coach Box -->
+                <div class="row coach-box">
+
+                    <!-- Profile Image -->
+                    <div class="col-3">
+                        <img class="img-fluid img-thumbnail rounded profile-pic" src="https://pbs.twimg.com/media/FDxyjj9XoA8nmau?format=jpg&name=900x900" />
+                    </div>
+
+                    <!-- Other -->
+                    <div class="col">
+                        <h2>{{user!.username}}</h2>
+                    </div>
+
+                    <!-- Timeslot Stuff-->
+                    <div>
+                        <h3>Schedule</h3>
+                        <form [formGroup]="timeSlotForm" (ngSubmit)="book()">
+
+                            <div class="form-group">
+                                <input type="date" class="form-control" formControlName="date" id="date" (input)="onDateChange($event)" />
+                            </div>
+
+                            <div class="form-group">
+                                <select class="form-select" (change)="onTimeSelect($event.target)">
+                                    <option selected>Select Time</option>
+
+                                    <option *ngFor="let time of availableTimes" [value]="time">
+                                        {{time }}
+                                    </option>
+                                  </select>
+                            </div>
+                
+                            <button type="submit" class="btn btn-primary" [disabled]="!timeSlotForm.valid" disabled>Book</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </ng-template>
+</div>

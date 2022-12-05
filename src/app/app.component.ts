@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
+import {UserHelper } from './helpers/user-helper';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +13,7 @@ export class AppComponent {
   title = 'AC Game Coaching';
   navbarCollapsed = true;
 
-  constructor(private _authService: AuthService, private _router: Router) { 
+  constructor(private _authService: AuthService, private _userService : UserService, private _router: Router) { 
   }
 
   isLoggedIn() {
@@ -25,5 +27,9 @@ export class AppComponent {
 
   toggleNavbar() {
     this.navbarCollapsed = !this.navbarCollapsed;
+  }
+
+  getUserType() : string {
+    return UserHelper.getUserType() as string;
   }
 }

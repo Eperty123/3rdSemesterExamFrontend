@@ -24,6 +24,7 @@ export class AuthService {
           if (token && token.token) {
             UserHelper.setUserToken(token.token);
             UserHelper.setUserId(token.userId);
+            UserHelper.setUserType(token.userType);
             this.isLoggedIn$.next(token);
           } else this.logOut();
         })
@@ -33,6 +34,8 @@ export class AuthService {
   logOut() {
     this.isLoggedIn$.next(null);
     UserHelper.setUserToken(null);
+    UserHelper.setUserId(null);
+    UserHelper.setUserType(null);
   }
 
   getToken() : string | null {
