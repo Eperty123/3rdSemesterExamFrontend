@@ -42,6 +42,7 @@ export class CoachManageTimeslotComponent implements OnInit {
     let dto = this.timeSlotForm.value as unknown as AvailableTimesDto;
     dto.coachId = UserHelper.getUserId();
     this._bookingService.updateAvailableTimes(dto).subscribe({
+      complete: () => alert("You have updated your work hours successfully."),
       error: (e) => alert(e["error"])
     });
   }

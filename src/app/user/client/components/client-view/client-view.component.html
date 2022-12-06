@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-8 offset-2" *ngIf="user == null; else userValid">
+        <h1 class="text-center" [innerText]="errorMessage">Loading...</h1>
+    </div>
+
+    <ng-template #userValid>
+            <div class="col-4 offset-4" *ngIf="user != null">
+                <h1>Client Profile</h1>
+                
+                <!-- Coach Box -->
+                <div class="row coach-box">
+
+                    <!-- Profile Image -->
+                    <div class="col-3">
+                        <img class="img-fluid img-thumbnail rounded profile-pic" src="https://pbs.twimg.com/media/FDxyjj9XoA8nmau?format=jpg&name=900x900" />
+                    </div>
+
+                    <!-- Other -->
+                    <div class="col">
+                        <h2>{{user!.username}}</h2>
+                    </div>
+                </div>
+            </div>
+    </ng-template>
+</div>

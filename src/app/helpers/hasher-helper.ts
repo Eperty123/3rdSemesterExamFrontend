@@ -1,10 +1,22 @@
+import { environment } from "src/environments/environment";
+import * as CryptoJS from 'crypto-js';
+
+/**
+ * References:
+ * https://gist.github.com/ufologist/5581486
+ * https://cryptojs.gitbook.io/docs/
+ * https://www.webdevtutor.net/blog/could-not-find-file-module-crypto-js
+ */
+
 export const HasherHelper = {
-    
-    base64Encode(plain : any) {
-        return Buffer.from(plain).toString("base64");
+
+    aesEncode(plain? : any): string {
+        if(plain == null) return "";
+        return CryptoJS.AES.encrypt(plain, environment.encryptionKey).toString();
     },
 
-    base64Decode(encoded : any) {
-        return Buffer.from(encoded, "base64").toString("binary");
-    }
+    aesDecode(encrypted? : any): string {
+        if(encrypted == null) return "";
+        return CryptoJS.AES.decrypt(encrypted, environment.encryptionKey).toString(CryptoJS.enc.Utf8);
+    },
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginUserDto } from 'src/app/dtos/login-user-dto';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -16,7 +17,7 @@ export class UserLoginComponent implements OnInit {
   });
 
 
-  constructor(private _authService : AuthService) { }
+  constructor(private _authService : AuthService, private _router : Router) { }
 
   ngOnInit(): void {
   }
@@ -25,7 +26,10 @@ export class UserLoginComponent implements OnInit {
     let loginDto = this.loginForm.value as LoginUserDto;
 
     this._authService.login(loginDto).subscribe({
-      complete: () => alert("You have been successfully logged in, " + loginDto.username + "!"),
+      complete: () => {
+        alert("You have been successfully logged in, " + loginDto.username + "!");
+        this._router.navigateByUrl("/profile/view");
+      },
       error: (e) => alert(e["error"]),
     });
   }

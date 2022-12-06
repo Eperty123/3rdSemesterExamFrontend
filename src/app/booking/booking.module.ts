@@ -3,13 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { BookingRoutingModule } from './booking-routing.module';
 import {ReactiveFormsModule} from "@angular/forms";
-
-import { AvailableTimesComponent} from "./components/available-times/available-times.component";
-
+import { DeleteBookingComponent } from './components/delete-booking/delete-booking.component';
 
 @NgModule({
   declarations: [
-    AvailableTimesComponent
+    DeleteBookingComponent
   ],
   imports: [
     CommonModule,

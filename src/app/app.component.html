@@ -19,12 +19,13 @@
         <a class="nav-link" routerLink="/coaches">Coaches</a>
       </li>
 
-      <li ngbDropdown class="nav-item dropdown" *ngIf="isLoggedIn()">
+      <li ngbDropdown class="nav-item dropdown" *ngIf="getUserType() == 'Client'">
         <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           User Panel
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" ngbDropdownMenu>
           <a class="dropdown-item" routerLink="/profile/view">My Profile</a>
+          <a class="dropdown-item" routerLink="/client/bookings"  *ngIf="getUserType() == 'Client'">My Bookings</a>
           <a class="dropdown-item" (click)="logOut()">Log Out</a>
         </div>
       </li>
@@ -36,6 +37,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" ngbDropdownMenu>
           <a class="dropdown-item" routerLink="/coach/manage-workhours">My Work Hours</a>
+          <a class="dropdown-item" routerLink="/coach/bookings">My Bookings</a>
+          <a class="dropdown-item" (click)="logOut()">Log Out</a>
         </div>
       </li>
     </ul>
