@@ -4,6 +4,7 @@ export const environment = {
   domain: "localhost",
   port: 5000,
   timeZone: 1,
+  encryptionKey: "Team AC Booking System",
 
   getApiAddress() {
     let useHttps = environment.useHttps;

@@ -11,7 +11,7 @@ import { UserHelper } from '../helpers/user-helper';
 })
 export class AuthService {
 
-  isLoggedIn$ = new BehaviorSubject<any | null>(this.getToken());
+  isLoggedIn$ = new BehaviorSubject<string | null>(this.getToken());
 
   constructor(private _http: HttpClient) {
   }
@@ -25,7 +25,7 @@ export class AuthService {
             UserHelper.setUserToken(token.token);
             UserHelper.setUserId(token.userId);
             UserHelper.setUserType(token.userType);
-            this.isLoggedIn$.next(token);
+            this.isLoggedIn$.next(token.token);
           } else this.logOut();
         })
       )

@@ -1,11 +1,13 @@
+import { HasherHelper } from "./hasher-helper";
+
 export const UserHelper = {
 
     getUserId() {
-        return Number.parseInt(localStorage.getItem("userId") as string);
+        return Number.parseInt(HasherHelper.aesDecode(localStorage.getItem("userId")));
     },
 
     getUserType() {
-        return localStorage.getItem("userType");
+        return HasherHelper.aesDecode(localStorage.getItem("userType"));
     },
 
     getUserToken() {
@@ -14,12 +16,12 @@ export const UserHelper = {
 
     setUserId(id : any | null) {
         if(id == null) localStorage.removeItem("userId");
-        else localStorage.setItem("userId", id.toString());
+        else localStorage.setItem("userId", HasherHelper.aesEncode(id.toString()));
     },
 
     setUserType(type : string | null) {
         if(type == null) localStorage.removeItem("userType");
-        else localStorage.setItem("userType", type);
+        else localStorage.setItem("userType", HasherHelper.aesEncode(type));
     },
 
     setUserToken(token : string | null) {

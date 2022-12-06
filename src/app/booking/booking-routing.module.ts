@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AvailableTimesComponent} from "./components/available-times/available-times.component";
-import {AuthGuardGuard} from "../guards/auth-guard.guard";
+import { DeleteBookingComponent } from './components/delete-booking/delete-booking.component';
 
 const routes: Routes = [
-  {path: "available-times", component: AvailableTimesComponent, canActivate: [AuthGuardGuard]}
+  { path: "booking/delete/:id", component: DeleteBookingComponent}
 ];
 
 @NgModule({

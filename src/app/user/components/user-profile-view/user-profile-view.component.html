@@ -1,14 +1,29 @@
-<div class="register-form">
-    <div class="row">
-        <div class="col-6 offset-3">
-            <h1 id="title">My Account</h1>
-        </div>
-    </div>
+<div class="row">
+    <div class="col-4 offset-4">
+        <h1>My Account</h1>
+        
+        <!-- Coach Box -->
+        <div class="row coach-box">
 
-    <!-- Bookings -->
-    <div class="row">
-        <div class="col-6 offset-3">
-            <h2>Bookings</h2>
+            <!-- Profile Image -->
+            <div class="col-3">
+                <img class="img-fluid img-thumbnail rounded profile-pic" src="https://pbs.twimg.com/media/FDxyjj9XoA8nmau?format=jpg&name=900x900" />
+            </div>
+
+            <!-- Other -->
+            <div class="col">
+                <h2>{{user?.username}}</h2>
+
+                <div class="col manage-box">
+                    <h2>Manage</h2>
+                    <hr>
+                    <a routerLink="/client/bookings"><button type="button" class="btn btn-primary">Bookings</button></a>
+                </div>
+            </div>
+
+            <!-- Timeslot Stuff-->
+            <div>
+            </div>
         </div>
     </div>
 </div>

@@ -4,6 +4,7 @@ import {AvailableTimesDto} from "../dtos/available-times-dto";
 import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
 import { BookingDto } from '../dtos/booking-dto';
+import { DeleteBookingComponent } from '../booking/components/delete-booking/delete-booking.component';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +27,9 @@ export class BookingService {
 
   getAllBookings() : Observable<BookingDto[]> {
     return this._http.get<BookingDto[]>(environment.getApiAddress() + 'booking/');
+  }
+
+  deleteBooking(id : number) : Observable<BookingDto> {
+    return this._http.delete<BookingDto>(environment.getApiAddress() + 'booking/' + id);
   }
 }
