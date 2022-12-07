@@ -13,11 +13,13 @@
             <!-- Other -->
             <div class="col">
                 <h2>{{user?.username}}</h2>
+                <p>{{user?.description}}</p>
 
                 <div class="col manage-box">
                     <h2>Manage</h2>
                     <hr>
-                    <a routerLink="/client/bookings"><button type="button" class="btn btn-primary">Bookings</button></a>
+                    <div class="link"><a routerLink="/profile/edit"><button type="button" class="btn btn-primary">Profile</button></a></div>
+                    <div class="link"><a routerLink="/client/bookings"><button type="button" class="btn btn-primary">Bookings</button></a></div>
                 </div>
             </div>
 

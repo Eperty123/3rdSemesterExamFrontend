@@ -118,6 +118,12 @@ export class CoachViewComponent implements OnInit {
   }
 
   book() {
+
+    if(UserHelper.getUserToken() == null) {
+      alert("You are not logged in. Please log in to schedule a booking.");
+      return;
+    }
+
     let bookedTimeSplit = (this.bookedTime as string).split(':');
     this.bookedDate = new Date(this.selectedDate as string);
     this.bookedDate.setHours(Number.parseInt(bookedTimeSplit[0]) + environment.timeZone,Number.parseInt(bookedTimeSplit[1]),Number.parseInt(bookedTimeSplit[2]));
