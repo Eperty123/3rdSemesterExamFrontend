@@ -16,6 +16,7 @@ export class UserRegisterComponent implements OnInit {
     username: new FormControl("", [Validators.required]),
     email: new FormControl("", [Validators.required]),
     password: new FormControl("", [Validators.required]),
+    description: new FormControl("", [Validators.required]),
   });
 
   constructor(private _userService : UserService, private _router : Router) { }
@@ -28,14 +29,15 @@ export class UserRegisterComponent implements OnInit {
     var input = this.registerForm.value as RegisterUserDto;
 
     // TODO: Make call to the api.
-    this._userService.createUser(input).subscribe(
-      success => {
+    this._userService.createUser(input).subscribe({
+      next: (success) => {
         alert("Registration complete! Welcome onbard, " + success.username + "!");
         this._router.navigateByUrl("login");
       },
-      err => {
-        alert(err["error"]);
-      });
+      error: (e) => {
+        alert(e["error"]);
+      }
+    });
   }
 
 }

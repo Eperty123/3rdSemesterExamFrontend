@@ -5,7 +5,7 @@
 
     <ng-template #userValid>
             <div class="col-4 offset-4" *ngIf="user != null">
-                <h1>Book Coaching</h1>
+                <h1>Coach</h1>
                 
                 <!-- Coach Box -->
                 <div class="row coach-box">
@@ -18,11 +18,12 @@
                     <!-- Other -->
                     <div class="col">
                         <h2>{{user!.username}}</h2>
+                        <p>{{user!.description}}</p>
                     </div>
 
                     <!-- Timeslot Stuff-->
                     <div>
-                        <h3>Schedule</h3>
+                        <h3>Schedule Booking</h3>
                         <form [formGroup]="timeSlotForm" (ngSubmit)="book()">
 
                             <div class="form-group">
